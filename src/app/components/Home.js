@@ -2,14 +2,16 @@ import React from 'react';
 
 export class Home extends React.Component{
     render(){
-          let content = "";
-            if(true){
-                content = <p>Hello It's true</p>
-            }
         return(
             <div>
                 <p>This is new Component</p>
-                { content }{ 5 + 5 }
+                <p>Name : {this.props.name}</p>
+                <p>Age : {this.props.age}</p>
+                <p>User Name : {this.props.user.name}</p>
+                <h2>Skills</h2>
+                <ul>
+                    {this.props.user.skills.map((skills,i) => <li key={i}>{skills}</li>)}
+                </ul>
             </div>
         );
     }
