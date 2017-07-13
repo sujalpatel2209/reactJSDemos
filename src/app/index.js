@@ -16,7 +16,7 @@ class App extends React.Component {
             <div className="container">
                 <div className='row'>
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header/>
+                        <Header home="Home"/>
                     </div>
                 </div>
                 <div className='row'>
