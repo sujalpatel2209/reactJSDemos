@@ -6,7 +6,8 @@ export class Home extends React.Component {
         super();
         this.state = {
             age: props.initialAge,
-            status : 0
+            status : 0,
+            newLinkName : "About"
         };
         setTimeout(() => {
             this.setState({
@@ -19,6 +20,10 @@ export class Home extends React.Component {
         this.setState({
             age: this.state.age + 1
         });
+    }
+
+    changeName(){
+        this.props.changeLinkName(this.state.newLinkName)
     }
 
     render() {
@@ -38,6 +43,8 @@ export class Home extends React.Component {
                 <button onClick={() => this.increaseAge()} className="btn btn-primary">Increase Age</button>
                 <hr/>   
                 <button onClick={this.props.callFunc} className="btn btn-primary">Call Function</button>
+                <hr/>
+                <button onClick={this.changeName.bind(this)} className="btn btn-primary">Change Menu Name</button>
             </div>
         );
     }
@@ -48,5 +55,6 @@ Home.propTypes = {
     age: React.PropTypes.number,
     user: React.PropTypes.object,
     callFunc: React.PropTypes.func,
+    changeLinkName: React.PropTypes.func,
     // children: React.PropTypes.element.isRequired
 };
