@@ -7,7 +7,7 @@ export class Home extends React.Component {
         this.state = {
             age: props.initialAge,
             status : 0,
-            newLinkName : "About"
+            newLinkName : props.initialLinkName
         };
         setTimeout(() => {
             this.setState({
@@ -24,6 +24,12 @@ export class Home extends React.Component {
 
     changeName(){
         this.props.changeLinkName(this.state.newLinkName)
+    }
+
+    onChangeHandle(event) {
+        this.setState({
+            newLinkName: event.target.value
+        });
     }
 
     render() {
@@ -44,6 +50,10 @@ export class Home extends React.Component {
                 <hr/>   
                 <button onClick={this.props.callFunc} className="btn btn-primary">Call Function</button>
                 <hr/>
+                <input type="text" 
+                    value={this.state.newLinkName}
+                    onChange={(event) => this.onChangeHandle(event)}
+                />
                 <button onClick={this.changeName.bind(this)} className="btn btn-primary">Change Menu Name</button>
             </div>
         );
@@ -56,5 +66,6 @@ Home.propTypes = {
     user: React.PropTypes.object,
     callFunc: React.PropTypes.func,
     changeLinkName: React.PropTypes.func,
+    initialLinkName: React.PropTypes.string
     // children: React.PropTypes.element.isRequired
 };

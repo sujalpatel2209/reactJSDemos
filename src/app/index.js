@@ -44,6 +44,7 @@ class App extends React.Component {
                             user={userDetail} 
                             callFunc={this.callFunction}
                             changeLinkName={this.changeHomeLink.bind(this)}
+                            initialLinkName={this.state.homeLink}
                         />
                     </div>
                 </div>
