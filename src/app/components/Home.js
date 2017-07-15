@@ -36,6 +36,8 @@ export class Home extends React.Component {
                 <hr />
                 {/*<button onClick={this.increaseAge.bind(this)} className="btn btn-primary">Increase Age</button>*/}
                 <button onClick={() => this.increaseAge()} className="btn btn-primary">Increase Age</button>
+                <hr/>   
+                <button onClick={this.props.callFunc} className="btn btn-primary">Call Function</button>
             </div>
         );
     }
@@ -45,5 +47,6 @@ Home.propTypes = {
     name: React.PropTypes.string,
     age: React.PropTypes.number,
     user: React.PropTypes.object,
+    callFunc: React.PropTypes.func,
     // children: React.PropTypes.element.isRequired
 };
